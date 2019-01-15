@@ -145,8 +145,13 @@ struct C //大小为1
 注意char是1个比特=8个字节，所以char a1 : 8是没有意义的，同样的int a2 : 32也是没有必要的  
 
 #### 结构体数组  
-```
-struct man m[10] = { { "tom",12 },{ "marry",10 },{ "jack",9 } };
-```
 小知识：cpu处理int的效率是最高的，int比char要多占内存而已  
+[程序](struct_array.cpp)
+几种初始化的方法  
+```
+struct man m[3] = { { "tom",12,男 },{ "marry",10,女 },{ "jack",9,男 } };
+struct man m[3] = { { "tom",12,男 },{ "marry",10,女 }}
+struct man m[] = { { "tom",12,男 },{ "marry",10,女 },{ "jack",9,男 } };
+```
+练习题：数组按照年龄排序  
 
