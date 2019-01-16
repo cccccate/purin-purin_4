@@ -154,4 +154,5 @@ struct man m[3] = { { "tom",12,男 },{ "marry",10,女 }}
 struct man m[] = { { "tom",12,男 },{ "marry",10,女 },{ "jack",9,男 } };
 ```
 练习题：数组按照年龄排序  
+[按年龄冒泡排序结构体](struct_paixu.cpp)  
 
