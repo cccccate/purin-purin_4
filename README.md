@@ -156,3 +156,18 @@ struct man m[] = { { "tom",12,男 },{ "marry",10,女 },{ "jack",9,男 } };
 练习题：数组按照年龄排序  
 [按年龄冒泡排序结构体](struct_paixu.cpp)  
 
+#### 结构体嵌套
+```
+struct A
+{
+	int a1;
+	char a2;
+};
+struct B
+{
+	struct A a;
+	char a2;
+	int a3;
+};
+```
+c语言中结构体不能为空，但是c++可以  
