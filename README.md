@@ -178,6 +178,21 @@ struct name a = b;//赋值就是内存拷贝，也可以用memcopy
 
 #### 通过指针访问结构体成员
 
+```
+struct *p;
+p = &st1;
+strcpy((*p).name, "hello");//strcpy(p->.name, "hello");
+(*p).age = 50;//p->.age = 50;
+//(*p)等同于p->a, 一般都采用第二种方法，简单明了
+```
+
+#### 通过指针访问结构体数组
+与指针访问数组类似  
+[指针访问结构体数组](struct_poin.cpp)  
+
+#### 
+
+
 
 
 
