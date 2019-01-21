@@ -190,7 +190,44 @@ strcpy((*p).name, "hello");//strcpy(p->.name, "hello");
 与指针访问数组类似  
 [指针访问结构体数组](struct_poin.cpp)  
 
-#### 
+#### 结构体中的数组成员和指针成员——浅拷贝与深拷贝
+指针结构体成员在初始化时要提前分配内存   
+
+结构体变量的赋值
+```
+struct student st = {0};
+struct student st1 = {0};
+strcpy(st.name,"六六");
+st.age = 30;
+st1 = st;//结构体数组成员赋值
+printf("%s,%d\n",st1.name,st1.age);
+```
+```
+struct man m = {0};
+struct man m1 = {0};
+m.name = calloc(20,sizeof(char));
+strcpy(m.name,"正");
+m.age = 30;
+m1 = m;//结构体指针成员赋值——浅拷贝，不推荐的写法
+printf("%s,%d\n",m1.name,m1.age);
+free(m.name);
+```
+注：上述程序如果free(m.name)在printf之前free掉，那么输出结果将可能出现乱码，因为m1 = m后，m1和m指向同一个堆，如果mfree掉，那么m1也变成空指针了，因此不能直接用m1=m的方式进行赋值，推荐使用下面的深拷贝方法进行赋值（操作比较复杂，需要分配内存还要free掉内存）  
+```
+	struct man m = {0};
+	struct man m1 = {0};
+	m.name = calloc(20,sizeof(char));//不要忘记free
+	strcpy(m.name,"正");
+	m.age = 30;
+	m1.name = calloc(20,sizeof(char));
+	memcpy(m1.name,m.name,20);//深拷贝
+	m1.age = m.age;
+	free(m1.name);
+	//m1 = m;
+	free(m.name);
+	printf("%s,%d\n",m1.name,m1.age);
+```
+[完整代码](struct_pp.cpp)  
 
 
 
